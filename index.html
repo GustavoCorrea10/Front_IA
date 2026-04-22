@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistente Educacional IA</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="cabecalho">
+        <div class="cabecalho-interno">
+          <div class="cabecalho-texto">
+            <h1>Assistente Educacional IA</h1>
+            <p>Orientador inteligente de tecnologias</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="area-chat" id="chat">
+        <div class="chat-conteudo">
+          <div class="boas-vindas" id="boasVindas">
+            <h2>Escolha as <span>Tecnologias Ideais</span></h2>
+
+            <p>
+              Informe seu objetivo e as tecnologias que você conhece. A IA irá
+              analisar e recomendar o melhor caminho.
+            </p>
+
+            <div class="formulario-ia">
+              <label>Qual o objetivo do seu projeto?</label>
+
+              <input
+                type="text"
+                id="objetivo"
+                placeholder="Ex: Criar sistema com IA"
+              />
+
+              <label>Qual seu nível?</label>
+
+              <select id="nivel">
+                <option>Iniciante</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+              </select>
+
+              <label>Tecnologias que você conhece</label>
+
+              <textarea
+                id="tecnologias"
+                placeholder="Ex: Java, Spring Boot, React, MySQL..."
+              ></textarea>
+
+              <button class="botao-gerar" onclick="gerarTecnologias()">
+                Analisar Tecnologias
+              </button>
+            </div>
+          </div>
+
+          <div id="chatInner"></div>
+        </div>
+      </main>
+
+      <footer class="rodape">
+        <p class="info-rodape">Assistente Educacional IA · Spring Boot + IA</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

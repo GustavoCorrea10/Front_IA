@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: Poppins;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho {
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  padding: 15px;
+  display: flex;
+}
+
+.cabecalho-interno {
+  max-width: 760px;
+  margin: auto;
+}
+
+.cabecalho-texto h1 {
+  font-size: 1rem;
+}
+
+.cabecalho-texto p {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.area-chat {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.chat-conteudo {
+  max-width: 760px;
+  margin: auto;
+}
+
+.boas-vindas {
+  text-align: center;
+  padding: 30px;
+}
+
+.boas-vindas span {
+  color: #6366f1;
+}
+
+.boas-vindas p {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+.formulario-ia {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.formulario-ia input,
+.formulario-ia select,
+.formulario-ia textarea {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+}
+
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.botao-gerar {
+  background: #6366f1;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.botao-gerar:hover {
+  background: #4f46e5;
+}
+
+.mensagem {
+  margin-top: 20px;
+}
+
+.mensagem-balao {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+}
+
+.botao-nova-consulta {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.loading-balao {
+  display: flex;
+  gap: 5px;
+}
+
+.loading-balao span {
+  width: 6px;
+  height: 6px;
+  background: #6366f1;
+  border-radius: 50%;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.rodape {
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #1e293b;
+}
+
+.info-rodape {
+  font-size: 0.7rem;
+  color: #64748b;
+}
