@@ -1,6 +1,9 @@
 const chatInner = document.getElementById("chatInner");
 const boasVindas = document.getElementById("boasVindas");
 
+// URL do seu backend no Render
+const API_URL = "https://backend-ia-087k.onrender.com/educacao/explicar";
+
 function formatarResposta(texto) {
   return texto
     .replace(/\*\*/g, "")
@@ -121,7 +124,7 @@ ${tecnologias}
   adicionarLoading();
 
   try {
-    const response = await fetch("http://localhost:8080/educacao/explicar", {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,12 +132,20 @@ ${tecnologias}
       body: JSON.stringify(pergunta),
     });
 
+    // Verifica se a resposta foi bem sucedida
+    if (!response.ok) {
+      throw new Error("Erro na resposta do servidor");
+    }
+
     const data = await response.text();
 
     removerLoading();
     adicionarMensagem(data);
   } catch (error) {
+    console.error("Erro de conexão:", error);
     removerLoading();
-    adicionarMensagem("Erro ao conectar com IA");
+    adicionarMensagem(
+      "Erro ao conectar com IA. Verifique se o backend está ativo ou se há bloqueio de CORS.",
+    );
   }
 }
