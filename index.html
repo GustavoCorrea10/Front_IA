@@ -3,77 +3,152 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assistente Educacional IA</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>"
-    />
+    <title>EduAgent · Análise de Stack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=DM+Sans:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
+    <div class="noise"></div>
+    <div class="grid-lines"></div>
+
     <div class="app">
-      <header class="cabecalho">
-        <div class="cabecalho-interno">
-          <div class="cabecalho-texto">
-            <h1>Assistente Educacional IA</h1>
-            <p>Orientador inteligente de tecnologias</p>
+      <header>
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path
+                d="M9 1L16 5V13L9 17L2 13V5L9 1Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+              <circle cx="9" cy="9" r="2.5" fill="currentColor" />
+            </svg>
+          </div>
+          <span class="logo-name">EduAgent</span>
+          <span class="logo-version">v2.0</span>
+        </div>
+        <div class="header-right">
+          <div class="agent-info">
+            <span class="agent-label">Modelo</span>
+            <span class="agent-value">LLaMA 3.3 70b</span>
+          </div>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span>agente ativo</span>
           </div>
         </div>
       </header>
 
-      <main class="area-chat" id="chat">
-        <div class="chat-conteudo">
-          <div class="boas-vindas" id="boasVindas">
-            <h2>Escolha as <span>Tecnologias Ideais</span></h2>
+      <main>
+        <div class="container">
+          <!-- TELA INICIAL -->
+          <section class="welcome" id="welcomeScreen">
+            <div class="welcome-top">
+              <div class="terminal-label">
+                // sistema de análise educacional
+              </div>
+              <h1>Diagnóstico de<br /><em>Stack Tecnológica</em></h1>
+              <p class="subtitle">
+                O agente analisa seu perfil, detecta lacunas de conhecimento e
+                gera um plano de ação personalizado — com raciocínio autônomo em
+                múltiplas etapas.
+              </p>
+            </div>
 
-            <p>
-              Informe seu objetivo e as tecnologias que você conhece. A IA irá
-              analisar e recomendar o melhor caminho.
-            </p>
+            <div class="agent-pipeline">
+              <div class="pipeline-node active">
+                <div class="node-icon">01</div>
+                <div class="node-text">
+                  <strong>Classificar Perfil</strong>
+                  <span>Agente avalia o nível real</span>
+                </div>
+              </div>
+              <div class="pipeline-edge"></div>
+              <div class="pipeline-node">
+                <div class="node-icon">02</div>
+                <div class="node-text">
+                  <strong>Analisar Lacunas</strong>
+                  <span>Detecta gaps com ferramentas</span>
+                </div>
+              </div>
+              <div class="pipeline-edge"></div>
+              <div class="pipeline-node">
+                <div class="node-icon">03</div>
+                <div class="node-text">
+                  <strong>Gerar Plano</strong>
+                  <span>Plano adaptado ao contexto</span>
+                </div>
+              </div>
+            </div>
 
-            <div class="formulario-ia">
-              <label>Qual o objetivo do seu projeto?</label>
+            <div class="form-section">
+              <div class="form-grid">
+                <div class="field-group span-2">
+                  <label for="objetivo">
+                    Objetivo do projeto
+                    <span class="field-tag">obrigatório</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="objetivo"
+                    placeholder="Ex: Criar uma API REST, deploy na AWS, aprender DevOps..."
+                    autocomplete="off"
+                  />
+                </div>
 
-              <input
-                type="text"
-                id="objetivo"
-                placeholder="Ex: Criar sistema com IA"
-              />
+                <div class="field-group">
+                  <label for="nivel">Nível atual</label>
+                  <select id="nivel">
+                    <option value="Iniciante">Iniciante</option>
+                    <option value="Intermediario">Intermediário</option>
+                    <option value="Avancado">Avançado</option>
+                  </select>
+                </div>
 
-              <label>Qual seu nível?</label>
+                <div class="field-group">
+                  <label for="tempo">Tempo disponível</label>
+                  <select id="tempo">
+                    <option value="1-2h por dia">1-2h por dia</option>
+                    <option value="3-4h por dia">3-4h por dia</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Fins de semana">Fins de semana</option>
+                  </select>
+                </div>
 
-              <select id="nivel">
-                <option>Iniciante</option>
-                <option>Intermediário</option>
-                <option>Avançado</option>
-              </select>
+                <div class="field-group span-2">
+                  <label for="tecnologias">
+                    Tecnologias que você já conhece
+                    <span class="field-tag">obrigatório</span>
+                  </label>
+                  <textarea
+                    id="tecnologias"
+                    placeholder="Ex: Python básico, HTML/CSS, SQL, Git, Linux CLI..."
+                  ></textarea>
+                </div>
+              </div>
 
-              <label>Tecnologias que você conhece</label>
-
-              <textarea
-                id="tecnologias"
-                placeholder="Ex: Java, Spring Boot, React, MySQL..."
-              ></textarea>
-
-              <button class="botao-gerar" onclick="gerarTecnologias()">
-                Analisar Tecnologias
+              <button class="btn-run" id="botaoGerar" onclick="gerarAnalise()">
+                <span class="btn-text">Iniciar Análise do Agente</span>
+                <span class="btn-arrow">→</span>
               </button>
             </div>
-          </div>
+          </section>
 
-          <div id="chatInner"></div>
+          <!-- ÁREA DE RESULTADO -->
+          <div id="outputArea"></div>
         </div>
       </main>
 
-      <footer class="rodape">
-        <p class="info-rodape">Assistente Educacional IA · Spring Boot + IA</p>
+      <footer>
+        <span
+          >EduAgent · Spring Boot + LLaMA 3.3 70b · Agente com Function
+          Calling</span
+        >
       </footer>
     </div>
 
