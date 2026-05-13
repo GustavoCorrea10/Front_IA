@@ -5,7 +5,6 @@
  */
 
 const API_URL = "http://localhost:8080/educacao/analisar";
-
 // ─── ESTADO DA UI ───────────────────────────────────────────────────────────
 
 let currentLoadingBox = null;
