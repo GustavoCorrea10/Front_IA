@@ -4,7 +4,7 @@
  * Exibe o raciocínio passo a passo e os tool calls usados.
  */
 
-const API_URL = "http://localhost:8080/educacao/analisar";
+const API_URL = "https://backend-ia-087k.onrender.com";
 // ─── ESTADO DA UI ───────────────────────────────────────────────────────────
 
 let currentLoadingBox = null;
@@ -367,7 +367,7 @@ function adicionarErro(msg) {
   const outputArea = document.getElementById("outputArea");
   const div = document.createElement("div");
   div.className = "error-block fade-in";
-  div.innerHTML = `<strong>// Erro do agente:</strong><br>${msg}<br><br>Verifique se o backend está rodando em <code>localhost:8080</code>.`;
+  div.innerHTML = `<strong>// Não foi possível processar sua solicitação</strong><br>${msg}<br><br>Verifique os dados informados e tente novamente.`;
   outputArea.appendChild(div);
 }
 
@@ -409,7 +409,8 @@ async function gerarAnalise() {
       tecnologias,
     };
 
-    const response = await fetch(API_URL, {
+    // Ajustado para bater no endpoint correto do backend (/educacao/analisar)
+    const response = await fetch(API_URL + "/educacao/analisar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
